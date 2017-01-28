@@ -17,7 +17,7 @@
 }
 
 
-md-list-item:hover{
+.userlist md-list-item:hover{
     background-color:#3f51b5 !important;
 }
 .card-margin {
@@ -30,5 +30,42 @@ md-card-content {
 }
 
 md-input-container {
-    width: calc(100% - 300px);
+    width: calc(100% - 500px);
+}
+
+.me {
+    
+    color: black;
+    background:cornflowerblue;
+    border-radius: 10px;
+    padding: 10px 20px;
+    float: right;
+}
+
+.you {    
+    color:black;
+    background: lightcyan;
+    border-radius: 10px;
+    padding: 10px 20px;
+    float: left;
+}
+
+.fileUploader {  
+    position: absolute;
+    /*left: 0;
+    top: 0;*/
+    width: 100%;
+    bottom: 0;
+    opacity: 0;
+}
+
+.chatBtns{
+    float: right;
+    width: 200px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.exmpale-spacer {
+    flex: 1 1 auto;
 }

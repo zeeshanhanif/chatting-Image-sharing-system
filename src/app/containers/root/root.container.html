@@ -1,23 +1,45 @@
 <div class="userlist">
   <md-list>
-    <md-list-item class="userItem"  *ngFor="let user of users | async">{{user.firstName}}</md-list-item>
+    <md-list-item class="userItem" (click)="selectForChat(user)"  *ngFor="let user of users | async">{{user.firstName}}</md-list-item>
     
 </md-list>
 </div>
 <div class="chatcontent">
-  <md-card color="primary" class="card-margin" >        
+  <md-card color="primary" class="card-margin" *ngIf="otherUser" >        
         <md-card-header>
-          <md-card-title><h1>User Name</h1></md-card-title>        
+          <md-card-title><h1>{{otherUser.firstName}}</h1></md-card-title>        
         </md-card-header>
-            Hello World
           <md-card-content >
+            <md-list>
+                <md-list-item  class="userItem"  *ngFor="let message of conversation | async">
+                  <div style="width: 100%;">
+                    <div [ngClass]="{me: (user$ | async)?.$key==message.senderId,  you: (user$ | async)?.$key!=message.senderId}" >
+                      <!--
+                      <img *ngIf="message.text.startsWith('https://')" [src]="message.text" style="width: 60px;height: 60px;" />
+                      -->
+                      <a *ngIf="message.text.startsWith('https://')" href="{{message.text}}" target="_blank">
+                        {{getFileNameFromUrl(message.text)}}
+                      </a>
+                      <span *ngIf="!message.text.startsWith('https://')">{{message.text}}</span>
+                    </div>
+                  </div>
+                </md-list-item>
+
+            </md-list>
+            
           </md-card-content>    
           <md-card-actions>
           <md-input-container class="signup-input" >
-            <input md-input id="message" placeholder="Say Hi!!!" type="text"  >
+            <input md-input id="message" #userMessage placeholder="Say Hi!!!" type="text"  >
           </md-input-container>
-            <button md-raised-button color="primary">File</button>
-            <button md-raised-button color="primary">Send</button>
+            <!--<button md-raised-button color="primary">File</button>-->
+              
+              <form ngNoForm style="display:inline-block;">
+                  <input id="userUploadedFile" name="file" type="file" class="btn btn-filled-wizard uploadButton">
+                  <button (click)="upload()" md-raised-button color="primary" type="button" class="btn btn-filled-wizard uploadButton">Upload</button>
+                </form>           
+              <button md-raised-button color="primary" (click)="sendMessage(userMessage.value);userMessage.value=''">Send</button>
+            
           </md-card-actions>
         </md-card>
 </div>

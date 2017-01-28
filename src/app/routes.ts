@@ -4,7 +4,6 @@ import {LoggedInGuard} from './providers/loggedin-guard'
 import { 
     SignupContainer, 
     SigninContainer, 
-    AdminContainer,
     UserContainer,
     RootContainer
 } from "./containers";

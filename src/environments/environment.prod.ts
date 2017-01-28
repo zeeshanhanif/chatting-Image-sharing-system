@@ -1,10 +1,10 @@
 export const environment = {
   production: true,
   firebaseConfig : {
-    apiKey: "AIzaSyDpp0hVAEvXbjFE7ul9N0Y1J0CgDhNa9fk",
-    authDomain: "parking-booking-system.firebaseapp.com",
-    databaseURL: "https://parking-booking-system.firebaseio.com",
-    storageBucket: "parking-booking-system.appspot.com",
-    messagingSenderId: "366624095308"
+    apiKey: "AIzaSyBlK3YAaUaaBsaHesvdF7VOvaMKoAo9vDI",
+    authDomain: "chatting-system-5b4f4.firebaseapp.com",
+    databaseURL: "https://chatting-system-5b4f4.firebaseio.com",
+    storageBucket: "chatting-system-5b4f4.appspot.com",
+    messagingSenderId: "418538414523"
   }
 };

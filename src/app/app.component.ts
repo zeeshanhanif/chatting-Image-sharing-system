@@ -15,7 +15,9 @@ export class AppComponent {
     @select(['auth','isLoggedin']) isLoggedin$ :Observable<any>;
     @select(['auth','user']) user$ :Observable<any>;
     constructor(private router: Router, private authService: AuthService,private authAction: AuthActions) {
+      console.log("hello in app component");
       this.isLoggedin$.subscribe(val=>{
+        console.log("logged in value = ",val);
         if(!val){
           this.router.navigate(['signin']);
         }
