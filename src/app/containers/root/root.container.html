@@ -1,19 +1,23 @@
-<router-outlet></router-outlet>
-<!--
-<div>
-  Admin works
+<div class="userlist">
+  <md-list>
+    <md-list-item class="userItem"  *ngFor="let user of users | async">{{user.firstName}}</md-list-item>
+    
+</md-list>
 </div>
-<div>
-  <nav>
-    <a>Navigation:</a>
-    <ul>
-      <li><a [routerLink]="['admin']">Admin</a></li>
-      <li><a [routerLink]="['company']">Compnay</a></li>
-      <li><a [routerLink]="['student']"> Student</a></li>
-      
-    </ul>
-  </nav>
-
-  
+<div class="chatcontent">
+  <md-card color="primary" class="card-margin" >        
+        <md-card-header>
+          <md-card-title><h1>User Name</h1></md-card-title>        
+        </md-card-header>
+            Hello World
+          <md-card-content >
+          </md-card-content>    
+          <md-card-actions>
+          <md-input-container class="signup-input" >
+            <input md-input id="message" placeholder="Say Hi!!!" type="text"  >
+          </md-input-container>
+            <button md-raised-button color="primary">File</button>
+            <button md-raised-button color="primary">Send</button>
+          </md-card-actions>
+        </md-card>
 </div>
--->

@@ -1,22 +1,16 @@
 import { AuthService } from './AuthService';
-import { StudentService } from './StudentService';
-import { CompanyService } from './CompanyService';
-import { ParkingService } from './ParkingService';
+import { ChatService } from './ChatService';
 import { HelperService } from './HelperService';
 
 
 export const Providers: any[] = [
     AuthService,
-    StudentService,
-    CompanyService,
-    ParkingService,
+    ChatService,
     HelperService
 ]
 
 export {
    AuthService,
-   StudentService,
-   CompanyService,
-   ParkingService,
+   ChatService,
    HelperService
 }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import {ActivatedRoute} from '@angular/router'
 import { Router } from '@angular/router'
-import {Job} from '../../models'
 import {User} from '../../models'
 
 import { Observable} from 'rxjs';
@@ -11,7 +10,7 @@ import { NgRedux, select } from 'ng2-redux';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 
-import {ParkingService} from '../../providers';
+import {ChatService} from '../../providers';
 
 @Component({
   selector: 'app-user-list',
@@ -24,8 +23,8 @@ export class UserListComponent implements OnInit {
   @select(['auth','user']) user$ :Observable<any>;
   accountType: string;
   currentUrl : string;
-  constructor(private parkingService: ParkingService,private route: ActivatedRoute) {
-      this.users = this.parkingService.getUserList("1");
+  constructor(private parkingService: ChatService,private route: ActivatedRoute) {
+      //this.users = this.parkingService.getUserList("1");
       /*
       route.url.subscribe(url=>{
         console.log("paht : ",url[0].path);

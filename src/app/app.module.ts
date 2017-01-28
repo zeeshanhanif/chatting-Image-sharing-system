@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {RouterModule, Routes} from '@angular/router'
+import { RouterModule, Routes} from '@angular/router'
 import { MaterialModule } from '@angular/material';
 import { AngularFireModule, AuthProviders, AuthMethods  } from 'angularfire2';
 import {LoggedInGuard} from './providers/loggedin-guard';
