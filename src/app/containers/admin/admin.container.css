@@ -1,0 +1,34 @@
+.signup-input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card-margin {
+    margin: 20px;
+}
+
+.radio-margin {
+    margin-right: 20px;
+}
+
+.admin-info-area{
+    width: 100%;
+    height: 100%;
+    margin-right: 20px;
+}
+
+.admin-main-area{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.admin-detail-area{
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.grid-tile {
+    height: 100%;
+}

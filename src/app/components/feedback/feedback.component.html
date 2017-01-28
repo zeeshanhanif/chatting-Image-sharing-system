@@ -1,0 +1,58 @@
+<md-card *ngIf="(user$ | async)?.accountType==1" color="primary" class="card-margin"  > 
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value);">       
+  <md-card-header>
+      <md-card-title><h2>Your Feedback is Valuable for Us</h2></md-card-title>        
+    </md-card-header>
+    <md-card-content>
+        <md-input-container class="signup-input" >
+          <input md-input id="feedback" placeholder="Feedback" type="text" [formControl]="myForm.controls['feedback']" >
+          <md-hint *ngIf="myForm.controls['feedback'].touched && myForm.controls['feedback'].hasError('required')" 
+                      [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+        </md-input-container>
+    </md-card-content>
+
+    <md-card-actions>
+      <button md-raised-button color="primary">Send</button>
+    </md-card-actions>
+</form>
+</md-card>
+
+<md-card *ngIf="(user$ | async)?.accountType==3" color="primary" class="card-margin"  > 
+  <md-card-header>
+      <md-card-title><h2>Reply to Feedbacks</h2></md-card-title>        
+    </md-card-header>
+    <md-card-content>
+        <h4 class="line-margin" md-line>Click the Reply Button below to reply specific feedback</h4>
+        <md-input-container class="signup-input" >
+          <input md-input id="replyFeedback" [(ngModel)]="replyFeedback" [value]="currentFeedback?currentFeedback.reply:''" placeholder="Reply Feedback" type="text" >
+          <md-hint *ngIf="" 
+                      [ngStyle]="{'color': 'red'}" align="start">Please Select Feedback first</md-hint>
+        </md-input-container>
+    </md-card-content>
+
+    <md-card-actions>
+      <button md-raised-button color="primary" (click)="sendReplay()">Send</button>
+    </md-card-actions>
+</md-card>
+
+
+<md-card color="primary" class="card-margin" >        
+  <md-card-header>
+      <md-card-title><h2>Feedbacks</h2></md-card-title>   
+    </md-card-header>
+    <md-card-content>
+  <md-list>
+    <div *ngFor="let feedback of feedbacks | async">
+      <md-divider></md-divider> 
+      <md-list-item  >
+        <h4 class="line-margin" md-line><b>Feedback: </b> {{feedback.feedback}}</h4>
+        <h4 class="line-margin" md-line><b>Reply: </b>{{feedback.reply}}</h4>
+        <button *ngIf="(user$ | async)?.accountType==3" md-raised-button color="accent" (click)="selectReplyFeedback(feedback)" class="app-button">Reply</button>
+      </md-list-item>  
+
+    </div>
+  </md-list>
+  </md-card-content>
+ 
+      
+</md-card>

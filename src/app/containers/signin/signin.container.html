@@ -1,0 +1,39 @@
+<md-grid-list cols="3">
+ <md-grid-tile></md-grid-tile>
+  <md-grid-tile [colspan]="1" [rowspan]="1" >
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value);"> 
+      <div class="app-content">   
+      <md-card color="primary" class="card-margin" >        
+        <md-card-header>
+          <md-card-title><h1>Signin</h1></md-card-title>        
+        </md-card-header>
+          
+            <md-card-content >
+              
+              <md-input-container class="signup-input" >
+                <input md-input id="email" placeholder="Email" type="email" [formControl]="myForm.controls['email']" >
+                <md-hint *ngIf="myForm.controls['email'].touched && myForm.controls['email'].hasError('required')" 
+                            [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+              </md-input-container>
+
+              <md-input-container class="signup-input">
+                <input md-input id="password" placeholder="Password" type="password" [formControl]="myForm.controls['password']">
+                <md-hint *ngIf="myForm.controls['password'].touched && myForm.controls['password'].hasError('required')"
+                   [ngStyle]="{'color': 'red'}" align="start">Required</md-hint>
+              </md-input-container>
+              
+              <div *ngIf="isError" [ngStyle]="{'color': 'red'}" align="start">
+                  {{errorMessage}}
+              </div>
+            </md-card-content>
+          <md-card-actions>
+            <button md-raised-button color="primary">Signin</button>
+          </md-card-actions>
+        </md-card>
+        </div>
+      </form>
+ 
+
+  </md-grid-tile>
+  <md-grid-tile></md-grid-tile>
+</md-grid-list>

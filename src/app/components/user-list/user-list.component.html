@@ -1,0 +1,22 @@
+
+<md-card color="primary" class="card-margin" >        
+  <md-card-header>
+      <md-card-title><h2>Users</h2></md-card-title>        
+    </md-card-header>
+  <md-list>
+    <div *ngFor="let user of users | async">
+      <md-divider></md-divider> 
+      <md-list-item  >
+        <h2 class="line-margin" md-line><b>Name: </b>{{user.firstName}}</h2>
+        <!--
+        <h4 class="line-margin" md-line>Salary: {{job.salary}}</h4>
+        <p class="line-margin" md-line>Job Description: {{job.jobDescription}} </p>
+        -->
+        <!--
+        <button md-raised-button color="accent"  [routerLink]="['../userDetail']" (click)="viewDetail(user)" class="app-button">View</button>
+        <button md-raised-button color="accent" *ngIf="(user$ | async)?.accountType==3"  (click)="deleteUser(user)" class="app-button">Delete</button>
+        -->
+      </md-list-item>
+      </div> 
+  </md-list>
+</md-card>

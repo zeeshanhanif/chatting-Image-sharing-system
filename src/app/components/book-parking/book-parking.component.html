@@ -1,0 +1,26 @@
+<md-card color="primary" class="card-margin" >        
+  <md-card-header>
+      <md-card-title><h2>Selected Parking Area</h2></md-card-title>        
+    </md-card-header>
+  <md-list>
+    
+    <div *ngFor="let location of keys(locations$ | async); let i = index;">
+      <md-divider></md-divider> 
+      <md-list-item>
+        <h2 class="line-margin" md-line><b>Name: </b>{{(locations$ | async)[location]?.name}}</h2>
+        <h2 class="line-margin" md-line><b>Address: </b>{{(locations$ | async)[location]?.address}}</h2>
+        <button md-mini-fab class="md-primary" [routerLink]="['../parking-area/'+location]"><md-icon>launch</md-icon></button>
+      </md-list-item>
+      <md-divider></md-divider>
+    </div>
+    
+    <!--
+    <md-divider></md-divider> 
+      <md-list-item>
+        <h2 class="line-margin" md-line><b>Name: </b>Dolmen Mall</h2> 
+        <h2 class="line-margin" md-line><b>Address: </b>Sadar, Abdullah Haroon Road</h2>
+        <button md-mini-fab class="md-primary" [routerLink]="['../parking-area']"><md-icon>launch</md-icon></button>        
+      </md-list-item>
+      -->
+  </md-list>
+</md-card>

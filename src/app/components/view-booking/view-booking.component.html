@@ -1,0 +1,24 @@
+
+<md-card color="primary" class="card-margin" >        
+  <md-card-header>
+      <md-card-title><h2>Bookings</h2></md-card-title>        
+    </md-card-header>
+  <md-list>
+    <div *ngFor="let booking of bookings | async">
+      <md-divider></md-divider> 
+      <md-list-item  >
+        <h4 class="line-margin" md-line><b>Location: </b> {{booking.locationId}}</h4>
+        <h4 class="line-margin" md-line><b>Date: </b>{{booking.date}}</h4>
+        <h4 class="line-margin" md-line><b>Start Time: </b>{{booking.startTime}}</h4>
+        <h4 class="line-margin" md-line><b>End Time: </b>{{booking.endTime}}</h4>
+        <h4 class="line-margin" md-line><b>Hours: </b>{{booking.hours}}</h4>
+        
+        <button md-raised-button color="accent" (click)="cancelBooking(booking)" class="app-button">Cancel Booking</button>
+        <!--
+        <button *ngIf="(user$ | async).accountType==1" md-raised-button color="accent" (click)="cancelBooking(booking)" class="app-button">Cancel Booking</button>
+          -->
+        
+      </md-list-item>      
+    </div>
+  </md-list>
+</md-card>

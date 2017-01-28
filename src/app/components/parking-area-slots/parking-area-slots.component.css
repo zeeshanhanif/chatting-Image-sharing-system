@@ -1,0 +1,11 @@
+.slot-div {
+  display: inline-block;
+  width: 200px;
+  background-color: #b0bec5 !important;
+  height: 150px;
+  border: 1px solid;
+  border-radius: 25px;
+  margin: 5px;
+  padding: 30px
+  
+}

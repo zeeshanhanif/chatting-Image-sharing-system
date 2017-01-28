@@ -1,0 +1,7 @@
+<div>  
+  <div class="slot-div" (click)="chipClicked(slotsKey)" 
+   *ngFor="let slotsKey of keys((locations$ | async)[locationId]?.slots)">
+    {{(locations$ | async)[locationId]?.slots[slotsKey]}}
+    
+  </div>
+  </div>

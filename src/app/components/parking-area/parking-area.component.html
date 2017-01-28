@@ -1,0 +1,69 @@
+<md-card color="primary" class="card-margin" >        
+  <md-card-header>
+    <md-card-title><h2>Selecte Timings</h2></md-card-title>        
+  </md-card-header>
+  <md-card-content>
+    <span>
+      <b>Select Date:</b>
+      
+        <material-datepicker class="primary"
+            [(date)]="date"
+            (onSelect)="onSelect($event)"
+            dateFormat="YYYY-MM-DD"
+
+            ></material-datepicker>
+            
+    </span>
+    <span>
+      <b>Start Time:</b> 
+      <md-select class="accent" placeholder="Start Time" [(ngModel)]="startTime" name="startTime">
+      <md-option [value]="startTimeArray[time]" *ngFor="let time of keys(startTimeArray)">
+        {{time}}
+      </md-option>
+  </md-select>
+    </span>
+    <span >
+      <b>Select Hours:</b>
+      <md-select class="accent" placeholder="Hours" [(ngModel)]="hours" name="hours">
+      <md-option [value]="hour" *ngFor="let hour of keys((locations$ | async)[locationId]?.hours)">
+        {{hour}} hrs
+      </md-option>
+  </md-select>
+    </span>
+  </md-card-content>
+  <md-card-actions>
+    <div *ngIf="isEndTimeIncorrect" style="color:red">
+      Hours can not be selected for next Day
+    </div>
+    <div *ngIf="isPastDateSelected" style="color:red">
+      Can not select Past Date
+    </div>
+    <div *ngIf="!isDateTimeSelected" style="color:red">
+      Please select the Date and Time firest -- Click on the Select Slot button
+    </div>
+    <span class="app-toolbar-filler"></span>
+    <button md-raised-button color="primary" (click)="selectSlots()">Select Slot</button>
+  </md-card-actions>
+</md-card>
+
+<md-card color="primary" class="card-margin" >        
+  <md-card-header>
+    <md-card-title><h2>Slots</h2></md-card-title>        
+  </md-card-header>
+  <md-card-content>
+    <div>  
+      <div class="slot-div" [ngClass]="{'booked-slot':isSlotBooked(slotsKey)}" (click)="chipClicked(slotsKey)" 
+      *ngFor="let slotsKey of keys((locations$ | async)[locationId]?.slots)">
+        {{(locations$ | async)[locationId]?.slots[slotsKey]}}
+        <div>
+        
+          <!--
+        {{slotsForDate?slotsForDate[slotsKey]:""}}
+        -->
+        </div>
+      </div>
+    </div>
+
+  </md-card-content>
+  
+</md-card>

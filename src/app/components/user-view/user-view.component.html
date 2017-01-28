@@ -1,0 +1,30 @@
+<md-card color="primary" class="card-margin" >        
+  <md-card-header>
+      <md-card-title><h2>{{user.firstName}}</h2></md-card-title>        
+    </md-card-header>
+  <md-list>
+    <md-list-item>
+        <h4 class="line-margin" md-line>Email: {{user.email}}</h4>      
+      </md-list-item>
+    <div *ngIf="user && user.accountType==1">
+      
+      <md-list-item>
+        <h4 class="line-margin" md-line>Education: {{user.education}}</h4>      
+      </md-list-item>
+      <md-list-item>
+        <h4 class="line-margin" md-line>GPA: {{user.gpa}}</h4>      
+      </md-list-item>
+      <md-list-item>
+        <h4 class="line-margin" md-line>Skills: {{user.skills}}</h4>      
+      </md-list-item>
+      <md-list-item>
+        <h4 class="line-margin" md-line>Overview: {{user.overview}}</h4>      
+      </md-list-item>
+    </div>
+    <!--
+    <md-list-item>
+      <h4 class="line-margin" md-line>Description: {{job.jobDescription}}</h4>      
+    </md-list-item>
+    -->
+  </md-list>
+</md-card>
